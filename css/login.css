@@ -1,0 +1,48 @@
+body {
+    height: 100vh;
+    /* Ocupa toda la altura de la ventana */
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    background-color: #f7f7f7;
+    margin: 0;
+}
+
+/* Estilos del contenedor del formulario */
+login-container {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    /* Limita el tamaño máximo */
+}
+
+/* Estilo de los inputs */
+.form-floating {
+    margin-bottom: 20px;
+    /* Espacio entre los inputs */
+}
+
+.btn-primary {
+    width: 100%;
+    /* Hace que el botón ocupe todo el ancho */
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.imagen {
+  border-radius: 70%;
+  /* width: 200px;
+  height: 150px; */
+  object-fit: cover;
+}
+

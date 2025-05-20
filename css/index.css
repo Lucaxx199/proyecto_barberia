@@ -1,0 +1,53 @@
+
+.color_fondo{
+    background-color: black;
+}
+  
+  .bg-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    min-height: 100vh;
+  }
+  
+  .carousel-inner {
+    height: 500px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .carousel-item img {
+    max-height: 500px;
+    max-width: 800px; 
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto; 
+    display: block;
+  }
+  
+  
+  .card img {
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .texto_blanco{
+    color: white;
+  }
+
+  footer {
+    background-color: white;
+    position: fixed;
+    bottom: 0; 
+    width: 100%; 
+    text-align: start; 
+    color: black;
+    padding: 10px; 
+}
+  
+.centrar{
+    text-align: center;
+}
+
+body{
+  padding-top: 70px;
+}
