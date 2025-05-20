@@ -46,3 +46,6 @@ login-container {
   object-fit: cover;
 }
 
+.imagen_fondo{
+    background-image: url("../imagenes/foto_logo.jpg");
+}

@@ -35,12 +35,12 @@
   }
 
   footer {
-    background-color: white;
+    background-color: red;
     position: fixed;
     bottom: 0; 
     width: 100%; 
     text-align: start; 
-    color: black;
+    color: white;
     padding: 10px; 
 }
   
