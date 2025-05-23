@@ -1,53 +1,158 @@
-
-.color_fondo{
-    background-color: black;
-}
-  
   .bg-overlay {
     background-color: rgba(0, 0, 0, 0.7);
     min-height: 100vh;
   }
-  
+
   .carousel-inner {
     height: 500px;
     display: flex;
     align-items: center;
   }
-  
+
   .carousel-item img {
     max-height: 500px;
-    max-width: 800px; 
+    max-width: 800px;
     width: auto;
     height: auto;
     object-fit: cover;
-    margin: 0 auto; 
+    margin: 0 auto;
     display: block;
   }
-  
-  
+
+
   .card img {
     height: 100px;
     object-fit: cover;
+    border: 5px solid #fff;
+    /* Agrega el borde alrededor de la imagen */
+    border-radius: 10px;
+    /* Opcional, para darle bordes redondeados */
   }
 
-  .texto_blanco{
+  .texto_blanco {
     color: white;
   }
 
   footer {
-    background-color: red;
-    position: fixed;
-    bottom: 0; 
-    width: 100%; 
-    text-align: start; 
+    /* position: fixed; */
+    background-color: #F0381F;
+    bottom: 0;
+    width: 100%;
+    text-align: start;
     color: white;
-    padding: 10px; 
-}
-  
-.centrar{
-    text-align: center;
-}
+    padding: 10px;
+  }
 
-body{
-  padding-top: 70px;
-}
+  .centrar {
+    text-align: center;
+  }
+
+
+
+  .imagen_fondo {
+    background-image: url("../imagenes/foto_logo.jpg");
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    color: #ffffff;
+    display: flex;
+    /* Aplica Flexbox al contenedor */
+    justify-content: center;
+    /* Centra la flecha horizontalmente */
+    align-items: center;
+    /* Centra la flecha verticalmente */
+    flex-direction: column;
+  }
+
+
+  /* Pseudo-elemento para la capa de opacidad */
+  .imagen_fondo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    /* Aquí defines el color y la opacidad */
+    z-index: 1;
+    /* Asegura que la capa esté encima de la imagen */
+  }
+
+  /* Para pantallas pequeñas (por ejemplo, móviles) */
+  @media (max-width: 768px) {
+    .imagen_fondo {
+      background-image: url("../imagenes/logo_gpt.png");
+      background-position: top center;
+      /* Ajustar para que se vea la parte superior de la imagen */
+    }
+  }
+
+
+  .imagen_fondo_arreglo {
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav_color {
+    background-color: #2A3233;
+  }
+
+  .login_color {
+    background-color: #3B565C;
+    color: white;
+  }
+
+
+  .flecha {
+    position: absolute;
+    text-align: center;
+    bottom: 30px;
+    font-size: 50px;
+    color: #1FBCDB;
+    animation: moverFlecha 1s infinite alternate;
+    z-index: 3;
+  }
+
+  /* Animación de la flecha hacia abajo */
+  @keyframes moverFlecha {
+    0% {
+      transform: translateY(0);
+      /* Empieza en su posición original */
+    }
+
+    100% {
+      transform: translateY(15px);
+      /* Mueve hacia abajo */
+    }
+  }
+
+  .color_fondo {
+    background-color: #2A3233;
+  }
+
+  .letra_blanca {
+    color: white;
+  }
+
+  .color_boton_agendar {
+    background-color: #F0381F;
+    color: white;
+    z-index: 3;
+    border-radius: 70%;
+
+  }
+
+  .color_boton_agendar .btn {
+    background-color: #F0381F;
+    color: white;
+    z-index: 3;
+    text-align: center;
+  }
+
+  .bienvenido {
+    color: white;
+    z-index: 3;
+
+  }

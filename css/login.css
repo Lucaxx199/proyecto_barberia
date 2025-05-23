@@ -41,11 +41,14 @@ login-container {
 
 .imagen {
   border-radius: 70%;
-  /* width: 200px;
-  height: 150px; */
+  width: 40vh;
+  height: 35vh;
   object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .imagen_fondo{
     background-image: url("../imagenes/foto_logo.jpg");
+    background-repeat: no-repeat;
 }
+

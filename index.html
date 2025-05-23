@@ -11,16 +11,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="navbar/navbar.html">
 
 </head>
 
 
-<body>
+<body class="color_fondo">
     <header>
         <!-- Menú header -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav_color">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">BarberShop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -55,25 +56,31 @@
                         </li>
                     </ul>
                 </div>
-                <a href="login.html" class="btn btn-primary btn-lg" tabindex="-1" role="button">Login</a>
+                <a href="login.html" class="btn btn-lg login_color" tabindex="-1" role="button">Login</a>
 
             </div>
         </nav>
 
     </header>
 
+    <section class="imagen_fondo">
+        <div class="fas fa-arrow-down flecha"></div>
+        <div class="bienvenido">
+            <h1>Bienvenido</h1>
+        </div>
+        <div class="color_boton_agendar">
+            <a href="login.html" class="btn btn-lg" tabindex="-1" role="button">Agendar hora</a>
+
+        </div>
+
+    </section>
 
 
     <!-- Comienzo container -->
     <container>
 
         <div>
-            <h1 class="centrar">Barberia para calvos</h1>
-        </div>
-        <br>
-
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-primary" type="button">Agendar hora</button>
+            <h1 class="centrar letra_blanca">BarberShop</h1>
         </div>
         <br>
 
@@ -112,10 +119,14 @@
             </div>
         </div>
     </container>
+    <br>
+    <br>
     <!-- FOOTER -->
-    <footer>
-        @Todos los derechos reservados
-    </footer>
+    <div>
+        <footer>
+            @Todos los derechos reservados
+        </footer>
+    </div>
 
 </body>
 
