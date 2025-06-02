@@ -3,38 +3,12 @@
     min-height: 100vh;
   }
 
-  .carousel-inner {
-    height: 500px;
-    display: flex;
-    align-items: center;
-  }
-
-  .carousel-item img {
-    max-height: 500px;
-    max-width: 800px;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-    margin: 0 auto;
-    display: block;
-  }
-
-
-  .card img {
-    height: 100px;
-    object-fit: cover;
-    border: 5px solid #fff;
-    /* Agrega el borde alrededor de la imagen */
-    border-radius: 10px;
-    /* Opcional, para darle bordes redondeados */
-  }
-
   .texto_blanco {
     color: white;
   }
 
   footer {
-    /* position: fixed; */
+    position: fixed;
     background-color: #F0381F;
     bottom: 0;
     width: 100%;
@@ -105,7 +79,7 @@
   }
 
 
-  .flecha {
+  /* .flecha {
     position: absolute;
     text-align: center;
     bottom: 30px;
@@ -113,7 +87,7 @@
     color: #1FBCDB;
     animation: moverFlecha 1s infinite alternate;
     z-index: 3;
-  }
+  } */
 
   /* Animación de la flecha hacia abajo */
   @keyframes moverFlecha {
@@ -155,4 +129,62 @@
     color: white;
     z-index: 3;
 
+  }
+
+  body {
+    padding-bottom: 2vh;
+  }
+
+
+/* diseño para el card */
+  .diseño_cards {
+    font-family: Arial, sans-serif;
+    background-color: #2A3233;
+    margin: 0;
+    padding: 20px;
+  }
+
+
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .card h3 {
+    margin: 15px 0 10px;
+    color: #333;
+  }
+
+  .card p {
+    color: #666;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
   }
