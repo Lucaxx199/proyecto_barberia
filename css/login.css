@@ -18,7 +18,7 @@ login-container {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 50vh;
     /* Limita el tamaño máximo */
 }
 
@@ -50,5 +50,6 @@ login-container {
 .imagen_fondo{
     background-image: url("../imagenes/foto_logo.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
