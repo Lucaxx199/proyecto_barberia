@@ -48,7 +48,7 @@ login-container {
 }
 
 .imagen_fondo{
-    background-image: url("../imagenes/foto_logo.jpg");
+    background-image: url("../imagenes/lucas/foto_logo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }

@@ -24,7 +24,7 @@
 
 
   .imagen_fondo {
-    background-image: url("../imagenes/foto_logo.jpg");
+    background-image: url("../imagenes/lucas/foto_logo.jpg");
     background-size: cover;
     height: 100vh;
     position: relative;
@@ -57,7 +57,7 @@
   /* Para pantallas pequeñas (por ejemplo, móviles) */
   @media (max-width: 768px) {
     .imagen_fondo {
-      background-image: url("../imagenes/logo_gpt.png");
+      background-image: url("../imagenes/lucas/logo_gpt.png");
       background-position: top center;
       /* Ajustar para que se vea la parte superior de la imagen */
     }
