@@ -13,7 +13,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="navbar/navbar.html">
+    <link rel="stylesheet" href="navbar/navbar.css">
 
 </head>
 
@@ -21,52 +21,11 @@
 <body class="color_fondo">
     <header>
 
-        <div id="navbar-placeholder">
-
-        </div>
-
-        <!-- Menú header
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav_color">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">BarberShop</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../nosotros.html">Nosotros</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Servicios
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">servicio 1</a></li>
-                                <li><a class="dropdown-item" href="#">Servicio 2</a></li>
-                                <li><a class="dropdown-item" href="#">Servicio 3</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../contacto.html">Contacto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Agendar</a>
-                        </li>
-                    </ul>
-                </div>
-                <a href="login.html" class="btn btn-lg login_color" tabindex="-1" role="button">Login</a>
-
-            </div>
-        </nav> -->
+        <!-- Menú header, se llama desde el script del final -->
+        <div id="navbar-placeholder"></div>
 
     </header>
+
 
     <section class="imagen_fondo">
         <!-- <div class="fas fa-arrow-down flecha"></div> -->
@@ -128,10 +87,12 @@
 </html>
 
 
-  <script>
+
+<!-- Para cargar el navbar -->
+<script>
     fetch('navbar/navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
-      });
-  </script>
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+        });
+</script>
