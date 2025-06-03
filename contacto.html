@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - Barbería</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../proyecto_barberia/css/contacto.css" />
+    <link rel="stylesheet" href="navbar/navbar.css" />
+    <link rel="stylesheet" href="footer/footer.css">
+</head>
+
+<body class="color_fondo">
+    <header>
+        <div id="navbar-placeholder"></div>
+    </header>
+    <section class="imagen_fondo">
+        <!-- <div class="fas fa-arrow-down flecha"></div> -->
+        <div class="bienvenido">
+            <h1>Bienvenido a Contacto</h1>
+        </div>
+        
+
+    </section>
+
+    <section class="container mt-5">
+        <div class="text-center letra_blanca">
+            <h1>Contáctanos</h1>
+            <p>¿Tienes dudas, quieres reservar o colaborar con nosotros? ¡Escríbenos!</p>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label letra_blanca">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label letra_blanca">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label letra_blanca">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <br /><br />
+
+    <div>
+        <div id="footer"></div>
+    </div>
+
+    <!-- Cargar el navbar -->
+    <script>
+        fetch('navbar/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
+
+        <!-- Para cargar footer -->
+        <script>
+            fetch('footer/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-pie').innerHTML = data;
+                });
+        </script>
+</body>
+
+</html>

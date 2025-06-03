@@ -1,0 +1,104 @@
+/* Fondo general */
+.color_fondo {
+    background-color: #1C1C1C;
+}
+
+/* Colores para navbar y botones */
+.nav_color {
+    background-color: #2A3233;
+}
+
+.login_color {
+    background-color: #3B565C;
+    color: white;
+}
+
+
+.imagen_fondo {
+    background-image: url("../imagenes/foto_logo.jpg");
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    color: #ffffff;
+    display: flex;
+    /* Aplica Flexbox al contenedor */
+    justify-content: center;
+    /* Centra la flecha horizontalmente */
+    align-items: center;
+    /* Centra la flecha verticalmente */
+    flex-direction: column;
+  }
+
+  /* Pseudo-elemento para la capa de opacidad */
+  .imagen_fondo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    /* Aquí defines el color y la opacidad */
+    z-index: 1;
+    /* Asegura que la capa esté encima de la imagen */
+  }
+  .imagen_fondo_arreglo {
+    position: relative;
+    z-index: 1;
+  }
+
+/* Textos claros */
+.letra_blanca {
+    color: white;
+}
+
+/* Estilo general de formulario */
+form {
+    background-color: #2A3233;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Campos de formulario */
+form input,
+form textarea {
+    background-color: #3B565C;
+    color: white;
+    border: none;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #d1d1d1;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #6bb5ce;
+}
+
+/* Botón */
+form button {
+    background-color: #6bb5ce;
+    border: none;
+}
+
+form button:hover {
+    background-color: #5aa5ba;
+}
+
+/* Footer */
+footer {
+    background-color: #2A3233;
+    padding: 10px;
+    color: white;
+}
+
+/* Asegurar que el texto se vea bien */
+h1, label, p {
+    color: white;
+}
