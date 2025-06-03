@@ -20,7 +20,12 @@
 
 <body class="color_fondo">
     <header>
-        <!-- Menú header -->
+
+        <div id="navbar-placeholder">
+
+        </div>
+
+        <!-- Menú header
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav_color">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">BarberShop</a>
@@ -59,7 +64,7 @@
                 <a href="login.html" class="btn btn-lg login_color" tabindex="-1" role="button">Login</a>
 
             </div>
-        </nav>
+        </nav> -->
 
     </header>
 
@@ -69,7 +74,7 @@
             <h1>Bienvenido</h1>
         </div>
         <div class="color_boton_agendar">
-            <a href="login.html" class="btn btn-lg" tabindex="-1" role="button">Agendar hora</a>
+            <a href="#" class="btn btn-lg" tabindex="-1" role="button">Agendar hora</a>
 
         </div>
 
@@ -108,7 +113,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+    </section>
     <br>
     <br>
     <!-- FOOTER -->
@@ -121,3 +126,12 @@
 </body>
 
 </html>
+
+
+  <script>
+    fetch('navbar/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+  </script>
