@@ -15,7 +15,7 @@
 
 
 .imagen_fondo {
-    background-image: url("../imagenes/foto_logo.jpg");
+    background-image: url("../imagenes/lucas/foto_logo.jpg");
     background-size: cover;
     height: 100vh;
     position: relative;

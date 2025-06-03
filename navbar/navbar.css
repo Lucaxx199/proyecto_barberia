@@ -10,3 +10,10 @@
     background-color: #3B565C;
     color: white;
   }
+
+
+  .nav-link.active {
+  font-weight: bold;
+  color: #FFD700 !important; /* dorado por ejemplo */
+  border-bottom: 2px solid #FFD700;
+}
