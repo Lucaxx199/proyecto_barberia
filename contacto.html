@@ -12,9 +12,9 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="../proyecto_barberia/css/contacto.css" />
-    <link rel="stylesheet" href="navbar/navbar.css" />
-    <link rel="stylesheet" href="footer/footer.css">
+    <link rel="stylesheet" href="css/contacto.css" />
+    <!-- <link rel="stylesheet" href="navbar/navbar.css" />
+    <link rel="stylesheet" href="footer/footer.css"> -->
 </head>
 
 <body class="color_fondo">
@@ -26,7 +26,7 @@
         <div class="bienvenido">
             <h1>Bienvenido a Contacto</h1>
         </div>
-        
+
 
     </section>
 
@@ -69,17 +69,31 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
+
+                // Espera a que el contenido se haya insertado antes de marcar el enlace activo
+                const currentPage = window.location.pathname.split('/').pop();
+
+                const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+                navLinks.forEach(link => {
+                    const hrefPage = link.getAttribute('href')?.split('/').pop();
+                    if (hrefPage === currentPage) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
             });
     </script>
 
-        <!-- Para cargar footer -->
-        <script>
-            fetch('footer/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-pie').innerHTML = data;
-                });
-        </script>
+
+    <!-- Para cargar footer -->
+    <script>
+        fetch('footer/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-pie').innerHTML = data;
+            });
+    </script>
 </body>
 
 </html>
