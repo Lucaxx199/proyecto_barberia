@@ -36,25 +36,6 @@ main {
   text-align: center;
 }
 
-/* Estilo general del navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  /* separa logo y menú */
-  align-items: center;
-  /* alinea verticalmente al centro */
-  padding: 10px 30px;
-  background-color: rgb(67, 64, 64);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* Opcional */
-}
-
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
 /* Logo alineado a la izquierda */
 .logo img {
   height: 70px;
@@ -63,31 +44,32 @@ main {
 }
 
 /* Menú alineado a la derecha */
-.menu {
+/* .menu {
   display: flex;
   gap: 60px;
-  /* Espacio entre enlaces */
+  Espacio entre enlaces
   margin-right: auto;
   margin-left: 25px;
-}
+} */
 
-.menu a.active {
+/* .menu a.active {
   color: rgb(242, 214, 6);
   text-decoration: underline;
-}
+} */
 
 /* Estilos generales para los enlaces */
-.menu a {
+/* .menu a {
   text-decoration: none;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: rgb(219, 211, 211);
   font-size: 15px;
-}
+} */
 
-.menu a:hover {
-  color: #1bb1b6;
+
   /* Color al pasar el mouse (azul) */
-}
+/* .menu a:hover {
+  color: #1bb1b6;
+} */
 
 .agendar {
   display: flex;
@@ -193,12 +175,3 @@ h2 {
   color: #363333;
 }
 
-footer {
-  text-align: center;
-  font-size: 12px;
-  padding: 5px 0;
-  color: #3e3e41;
-  background-color: #d0d0d1cb;
-  /* Opcional: fondo gris claro */
-  margin-top: auto;
-}
