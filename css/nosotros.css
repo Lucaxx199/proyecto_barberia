@@ -112,6 +112,7 @@ main {
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: 40px;  
 }
 
 .container-quienessomos {
