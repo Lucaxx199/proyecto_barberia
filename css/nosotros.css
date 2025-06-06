@@ -24,7 +24,7 @@ body {
   left: 0;
   width: 100%;
   min-height: 100%;
-  background-image: url(../Imágenes/fondo/fondo-portada.webp);
+  background-image: url(../imagenes/anais/fondo-portada.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -66,7 +66,7 @@ main {
 } */
 
 
-  /* Color al pasar el mouse (azul) */
+/* Color al pasar el mouse (azul) */
 /* .menu a:hover {
   color: #1bb1b6;
 } */
@@ -96,26 +96,28 @@ main {
 }
 
 .container-principal {
-  justify-content: center;
-  /* Centra la imagen dentro */
-  background-color:rgba(223, 220, 220, 0.817);
+  display: flex;
+  background-color: rgba(223, 220, 220, 0.817);
+  box-shadow: #363333;
   border-radius: 5px;
-  margin: 50px;
+  margin-top: 70px;
+  margin-bottom: 70px;
 }
 
-.parrafo-nosotros {
+.logo-barber {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: auto;
+  padding-left: 40px;
+}
+
+.container-quienessomos p {
   text-align: justify;
-  padding-bottom: 50px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 50px;
 }
 
-.container-nosotros {
-  text-align: center;
-  background-color: #ffffffd4;
-}
-
-h1 {
+.container-quienessomos h1 {
   padding-top: 20px;
   text-align: center;
   font-family: 'Oswald', sans-serif;
@@ -123,12 +125,21 @@ h1 {
   padding-bottom: 10px;
   color: rgb(0, 28, 105);
 }
+.container-quienessomos .p {
+  text-align: justify;
+  padding-bottom: 50px;
+}
+
+.container-nosotros {
+  text-align: center;
+  background-color: #131313;
+}
 
 h2 {
   text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: rgb(0, 21, 95);
-  font-size: 40px;
+  font-family: 'oswald', sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 50px;
   padding-top: 40px;
   margin-bottom: 40px;
 }
@@ -148,7 +159,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #c8bfbf;
+  background-color: #e1d9d9;
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -167,11 +178,10 @@ h2 {
 .equipo h3 {
   margin: 5px 0;
   font-size: 16px;
-  color: #333;
+  color: #514c4c;
 }
 
 .equipo p {
   font-size: 14px;
   color: #363333;
 }
-
