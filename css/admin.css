@@ -1,0 +1,128 @@
+  .bg-overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+  }
+
+  .texto_blanco {
+      color: white;
+  }
+
+  .centrar {
+      text-align: center;
+  }
+
+
+
+  .imagen_fondo {
+      background-image: url("../imagenes/lucas/foto_logo.jpg");
+      background-size: cover;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      color: #ffffff;
+      display: flex;
+      /* Aplica Flexbox al contenedor */
+      justify-content: center;
+      /* Centra la flecha horizontalmente */
+      align-items: center;
+      /* Centra la flecha verticalmente */
+      flex-direction: column;
+  }
+
+
+  /* Pseudo-elemento para la capa de opacidad */
+  .imagen_fondo::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      /* Aquí defines el color y la opacidad */
+      z-index: 1;
+      /* Asegura que la capa esté encima de la imagen */
+  }
+
+  /* Para pantallas pequeñas (por ejemplo, móviles) */
+  @media (max-width: 768px) {
+      .imagen_fondo {
+          background-image: url("../imagenes/lucas/logo_gpt.png");
+          background-position: top center;
+          /* Ajustar para que se vea la parte superior de la imagen */
+      }
+  }
+
+
+  .imagen_fondo_arreglo {
+      position: relative;
+      z-index: 1;
+  }
+
+  .color_fondo {
+      background-color: #2A3233;
+  }
+
+  .letra_blanca {
+      color: white;
+  }
+
+  .color_boton_agendar {
+      background-color: #F0381F;
+      color: white;
+      z-index: 3;
+      border-radius: 70%;
+
+  }
+
+  .color_boton_agendar .btn {
+      background-color: #F0381F;
+      color: white;
+      z-index: 3;
+      text-align: center;
+  }
+
+  .bienvenido {
+      color: white;
+      z-index: 3;
+
+  }
+
+
+
+  /* LLAMAR ESTE CODIGO EN SUS INDEX (HEAD) CON ETIQUETA LINK */
+
+
+  .nav_color {
+      background-color: #2A3233;
+  }
+
+  .login_color {
+      background-color: #3B565C;
+      color: white;
+  }
+
+
+  .nav-link.active {
+      font-weight: bold;
+      color: #FFD700 !important;
+      /* dorado por ejemplo */
+      border-bottom: 2px solid #FFD700;
+  }
+
+
+  .modal .form-label {
+      color: #000;
+      /* Asegura que no estén en blanco sobre fondo blanco */
+      font-weight: bold;
+  }
+
+  .modal .form-control,
+  .modal .form-select {
+      background-color: #fff;
+      color: #000;
+  }
+
+  .modal-title{
+    color: #000;
+  }
