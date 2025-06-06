@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Barberia - Inicio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+        <!-- full calendar -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales/es.js"></script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+
+<body class="color_fondo">
+    <header>
+
+        <!-- Menú header, se llama desde el script del final -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav_color">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">BarberShop</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../admin.html">Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="login.html" class="btn btn-lg login_color" tabindex="-1" role="button">Login</a>
+
+            </div>
+
+    </header>
+
+
+    <div class="imagen_fondo">
+        <!-- <div class="fas fa-arrow-down flecha"></div> -->
+        <div class="bienvenido">
+            <h1>Bienvenido Administrador</h1>
+        </div>
+        <!-- Botones -->
+        <div class="color_boton_agendar">
+            <button class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#modalModificarHoras">Modificar
+                horas</button>
+        </div>
+        <br>
+        <div class="color_boton_agendar">
+            <button class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#modalModificarUsuarios">Modificar
+                usuarios</button>
+        </div>
+
+        <!-- Modal: Modificar Horas -->
+        <div class="modal fade" id="modalModificarHoras" tabindex="-1" aria-labelledby="modalModificarHorasLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalModificarHorasLabel">Modificar Horas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="calendario"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Modificar Usuarios -->
+        <div class="modal fade" id="modalModificarUsuarios" tabindex="-1" aria-labelledby="modalModificarUsuariosLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalModificarUsuariosLabel">Modificar Usuario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="barberoNombre" class="form-label">Nombre del Barbero</label>
+                                <select class="form-select" id="barberoNombre">
+                                    <option selected disabled>Seleccionar...</option>
+                                    <option value="juan">Juan</option>
+                                    <option value="pedro">Pedro</option>
+                                    <option value="luis">Luis</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="barberoEspecialidad" class="form-label">Especialidad barbero</label>
+                                <select class="form-select" id="barberoEspecialidad">
+                                    <option selected disabled>Seleccionar...</option>
+                                    <option value="corte_clasico">Corte clasico y para niños</option>
+                                    <option value="coloracion">Coloración</option>
+                                    <option value="cejas_y_barba">Cejas y barba</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" id="telefono" placeholder="Ej: +56912345678">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div id="footer-pie"></div>
+
+
+
+
+    <script>
+        let calendar;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modalModificarHoras');
+
+            modal.addEventListener('shown.bs.modal', function () {
+                const calendarEl = document.getElementById('calendario');
+
+                if (!calendar) {
+                    calendar = new FullCalendar.Calendar(calendarEl, {
+                        locale: 'es',
+                        initialView: 'dayGridMonth',
+                        headerToolbar: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        },
+                        height: 600,
+                        selectable: true,
+                        select: function (info) {
+                            alert('Seleccionaste: ' + info.startStr + ' a ' + info.endStr);
+                        }
+                    });
+                    calendar.render();
+                } else {
+                    calendar.render();
+                }
+            });
+        });
+    </script>
+
+
+
+
+    <!-- Para cargar footer -->
+    <script>
+        fetch('footer/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-pie').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
