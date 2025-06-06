@@ -45,11 +45,12 @@ h1 {
     margin: 40px 0;
 }
 
-/* Contenedores individuales más pequeños y menos alargados */
+/* Contenedores individuales más pequeños y cuadrados */
 .contacto-item {
-    flex: 0 1 180px; /* Más pequeño que antes */
+    flex: 0 0 160px; /* Ancho fijo */
+    height: 160px; /* Alto fijo */
     background: #333;
-    padding: 15px;
+    padding: 12px;
     border-radius: 15px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.5);
     text-align: center;
@@ -58,20 +59,26 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 220px; /* Menos alto */
+    justify-content: center;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .contacto-item img {
-    width: 60px; /* Iconos más pequeños */
-    margin-bottom: 12px;
+    width: 60px;
+    margin-bottom: 10px;
     transition: transform 0.5s ease;
 }
 
 .contacto-item p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     margin: 0;
+    line-height: 1.2;
+    max-height: 2.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 
 .contacto-item:hover {
@@ -108,7 +115,7 @@ h1 {
     background-color: #a33a2b;
 }
 
-/* Contenedor mapa, más grande y separado abajo */
+/* Contenedor mapa */
 .contenedor-mapa {
     flex: 1 1 100%;
     border-radius: 15px;
@@ -116,9 +123,9 @@ h1 {
     box-shadow: 0 6px 15px rgba(0,0,0,0.5);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     max-width: 900px;
-    margin: 0 auto 40px auto; /* Centrado con margen abajo */
+    margin: 0 auto 40px auto;
     cursor: pointer;
-    min-height: 300px; /* Altura adecuada */
+    min-height: 300px;
 }
 
 .contenedor-mapa iframe {
@@ -158,8 +165,8 @@ h1 {
 
     .contacto-item {
         width: 100%;
-        max-width: 280px;
-        min-height: 220px;
+        max-width: 220px;
+        height: 160px;
     }
 
     .contenedor-mapa {
