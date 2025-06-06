@@ -13,9 +13,33 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="navbar/navbar.css">
 </head>
 
 <body class="imagen_fondo">
+
+
+    <header>
+         <!-- Menú header, se llama desde el script del final -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav_color">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">BarberShop</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../index.html">Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="login.html" class="btn btn-lg login_color" tabindex="-1" role="button">Login</a>
+
+            </div>
+    </header>
 
     <login-container>
         <!-- Formulario -->
