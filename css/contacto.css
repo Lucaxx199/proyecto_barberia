@@ -1,104 +1,175 @@
-/* Fondo general */
+/* Mantener fondo oscuro general */
 .color_fondo {
-    background-color: #1C1C1C;
+    background-color: #222;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
 }
 
-/* Colores para navbar y botones */
-.nav_color {
-    background-color: #2A3233;
-}
-
-.login_color {
-    background-color: #3B565C;
-    color: white;
-}
-
-
+/* Ocultar sección imagen_fondo para eliminar fondo */
 .imagen_fondo {
-    background-image: url("../imagenes/lucas/foto_logo.jpg");
-    background-size: cover;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    color: #ffffff;
-    display: flex;
-    /* Aplica Flexbox al contenedor */
-    justify-content: center;
-    /* Centra la flecha horizontalmente */
-    align-items: center;
-    /* Centra la flecha verticalmente */
-    flex-direction: column;
-  }
+    display: none !important;
+}
 
-  /* Pseudo-elemento para la capa de opacidad */
-  .imagen_fondo::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    /* Aquí defines el color y la opacidad */
-    z-index: 1;
-    /* Asegura que la capa esté encima de la imagen */
-  }
-  .imagen_fondo_arreglo {
-    position: relative;
-    z-index: 1;
-  }
-
-/* Textos claros */
+/* Texto principal */
 .letra_blanca {
+    color: #fff;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Bajamos el título para que no quede tapado por navbar */
+section.container > .text-center {
+    padding-top: 80px; /* Ajusta este valor si es necesario */
+}
+
+/* Títulos */
+h1 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/* Contenedores alineados horizontalmente */
+.contacto-contenedores {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+/* Contenedores individuales más pequeños y menos alargados */
+.contacto-item {
+    flex: 0 1 180px; /* Más pequeño que antes */
+    background: #333;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    text-align: center;
     color: white;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 220px; /* Menos alto */
+    cursor: pointer;
 }
 
-/* Estilo general de formulario */
-form {
-    background-color: #2A3233;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+.contacto-item img {
+    width: 60px; /* Iconos más pequeños */
+    margin-bottom: 12px;
+    transition: transform 0.5s ease;
 }
 
-/* Campos de formulario */
-form input,
-form textarea {
-    background-color: #3B565C;
-    color: white;
-    border: none;
+.contacto-item p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
 }
 
-form input::placeholder,
-form textarea::placeholder {
-    color: #d1d1d1;
+.contacto-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
 }
 
-form input:focus,
-form textarea:focus {
-    outline: none;
-    box-shadow: 0 0 5px #6bb5ce;
+/* Estilo específico por tipo */
+.contenedor-whatsapp {
+    background-color: #25d366;
 }
 
-/* Botón */
-form button {
-    background-color: #6bb5ce;
-    border: none;
+.contenedor-whatsapp:hover {
+    background-color: #1ebe5b;
 }
 
-form button:hover {
-    background-color: #5aa5ba;
+.contenedor-whatsapp:hover img {
+    transform: rotate(15deg);
 }
 
-/* Footer */
-footer {
-    background-color: #2A3233;
+.contenedor-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.contenedor-instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fc3b51 45%, #a2187f 60%, #1434a9 90%);
+}
+
+.contenedor-gmail {
+    background-color: #d44638;
+}
+
+.contenedor-gmail:hover {
+    background-color: #a33a2b;
+}
+
+/* Contenedor mapa, más grande y separado abajo */
+.contenedor-mapa {
+    flex: 1 1 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    max-width: 900px;
+    margin: 0 auto 40px auto; /* Centrado con margen abajo */
+    cursor: pointer;
+    min-height: 300px; /* Altura adecuada */
+}
+
+.contenedor-mapa iframe {
+    border-radius: 15px;
+    width: 100%;
+    height: 350px;
+}
+
+.contenedor-mapa:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    transform: scale(1.03);
+}
+
+.mapa-link {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
     padding: 10px;
-    color: white;
+    background-color: #111;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
 }
 
-/* Asegurar que el texto se vea bien */
-h1, label, p {
-    color: white;
+.mapa-link:hover {
+    background-color: #444;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contacto-contenedores {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacto-item {
+        width: 100%;
+        max-width: 280px;
+        min-height: 220px;
+    }
+
+    .contenedor-mapa {
+        max-width: 100%;
+        height: auto;
+        min-height: 250px;
+        margin-bottom: 30px;
+    }
+
+    .contenedor-mapa iframe {
+        height: 250px;
+    }
 }
