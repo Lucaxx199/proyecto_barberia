@@ -2,98 +2,90 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacto - Barbería</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto - Barbería</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="css/contacto.css" />
-    <!-- <link rel="stylesheet" href="navbar/navbar.css" />
-    <link rel="stylesheet" href="footer/footer.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/contacto.css" />
 </head>
 
 <body class="color_fondo">
-    <header>
-        <div id="navbar-placeholder"></div>
-    </header>
-    <section class="imagen_fondo">
-        <!-- <div class="fas fa-arrow-down flecha"></div> -->
-        <div class="bienvenido">
-            <h1>Bienvenido a Contacto</h1>
-        </div>
+  <header>
+    <div id="navbar-placeholder"></div>
+  </header>
 
-
-    </section>
-
-    <section class="container mt-5">
-        <div class="text-center letra_blanca">
-            <h1>Contáctanos</h1>
-            <p>¿Tienes dudas, quieres reservar o colaborar con nosotros? ¡Escríbenos!</p>
-        </div>
-
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-6">
-                <form>
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label letra_blanca">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label letra_blanca">Correo electrónico</label>
-                        <input type="email" class="form-control" id="email" required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="mensaje" class="form-label letra_blanca">Mensaje</label>
-                        <textarea class="form-control" id="mensaje" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <br /><br />
-
-    <div>
-        <div id="footer"></div>
+  <section class="container mt-5">
+    <div class="text-center letra_blanca">
+      <h1>Contáctanos</h1>
+      <p>¿Tienes dudas, quieres reservar o colaborar con nosotros? ¡Escríbenos!</p>
     </div>
 
-    <!-- Cargar el navbar -->
-    <script>
-        fetch('navbar/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-placeholder').innerHTML = data;
+    <!-- Contenedores alineados -->
+    <div class="contacto-contenedores text-center">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/56912345678" target="_blank" class="contenedor-whatsapp contacto-item"
+        aria-label="WhatsApp">
+        <img src="imagenes/eduardo/whatsap.png" alt="Logo WhatsApp" class="icono-contacto" />
+        <p>Chatea con nosotros</p>
+      </a>
 
-                // Espera a que el contenido se haya insertado antes de marcar el enlace activo
-                const currentPage = window.location.pathname.split('/').pop();
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/tuusuario" target="_blank" class="contenedor-instagram contacto-item"
+        aria-label="Instagram">
+        <img src="imagenes/eduardo/instagram.png" alt="Logo Instagram" class="icono-contacto" />
+        <p>Instagram</p>
+      </a>
 
-                const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-                navLinks.forEach(link => {
-                    const hrefPage = link.getAttribute('href')?.split('/').pop();
-                    if (hrefPage === currentPage) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            });
-    </script>
+      <!-- Gmail -->
+      <a href="mailto:barberia@email.com" target="_blank" class="contenedor-gmail contacto-item"
+        aria-label="Correo electrónico">
+        <img src="imagenes/eduardo/gmail.png" alt="Logo Gmail" class="icono-contacto" />
+        <p>Correo electrónico</p>
+      </a>
+    </div>
 
+    <!-- Mapa grande -->
+    <div class="contenedor-mapa-grande mt-4">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.241158742254!2d-71.22917918480248!3d-33.68695388070937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96623e3cd888ea8d%3A0x34f43d1e4f8a2c3e!2sArza%201707%2C%20Melipilla%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1717455391900!5m2!1ses!2scl"
+        width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="mapa-link">Ver ubicación en Google Maps</div>
+    </div>
+  </section>
 
-    <!-- Para cargar footer -->
-    <script>
-        fetch('footer/footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-pie').innerHTML = data;
-            });
-    </script>
+  <br /><br />
+  <div id="footer-pie"></div>
+
+  <script>
+    fetch('navbar/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        navLinks.forEach(link => {
+          const hrefPage = link.getAttribute('href')?.split('/').pop();
+          if (hrefPage === currentPage) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      });
+
+    fetch('footer/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-pie').innerHTML = data;
+      });
+  </script>
 </body>
 
 </html>

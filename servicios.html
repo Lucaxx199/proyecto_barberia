@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios - Barbería</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/servicios.css" />
+</head>
+
+<body class="color_fondo">
+  <header>
+    <div id="navbar-placeholder"></div>
+  </header>
+
+  <section class="imagen_fondo">
+    <div class="bienvenido text-center">
+      <h1>Conoce Nuestros Servicios</h1>
+    </div>
+  </section>
+
+  <section class="container mt-5 letra_blanca">
+    <div class="text-center mb-5">
+      <h2>Nuestros Servicios</h2>
+      <p>Corte de cabello clásico,
+        Corte + degradado,
+        Arreglo de barba,
+        Perfilado de cejas,
+        Corte niño,
+        Pack (corte + barba)
+        </p>
+    </div>
+
+    <!-- Servicio 1 -->
+    <div class="servicio" data-aos="fade-up">
+      <h3 class="text-center mb-4">Corte de Pelo</h3>
+      <div class="row g-3">
+        <div class="col-md-4"><img src="imagenes/eduardo/corte de pelo.jpg" class="img-fluid" alt="Corte 1"></div>
+        <div class="col-md-4"><img src="imagenes/eduardo/corte_de_pelo2.jpg" class="img-fluid" alt="Corte 2"></div>
+        <div class="col-md-4"><img src="imagenes/eduardo/corte_de_pelo3.jpg" class="img-fluid" alt="Corte 3"></div>
+      </div>
+      <a href="https://wa.me/1234567890" target="_blank" class="btn btn-primary agendar-btn">Agendar Ahora</a>
+    </div>
+
+    <!-- Servicio 2 -->
+    <div class="servicio" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="text-center mb-4">Perfilado de Barba</h3>
+      <div class="row g-3">
+        <div class="col-md-4"><img src="imagenes/eduardo/barba1.jpg" class="img-fluid" alt="Barba 1"></div>
+        <div class="col-md-4"><img src="imagenes/eduardo/barba2.avif" class="img-fluid" alt="Barba 2"></div>
+        <div class="col-md-4"><img src="imagenes/eduardo/barba3.jpg" class="img-fluid" alt="Barba 3"></div>
+      </div>
+      <a href="https://wa.me/1234567890" target="_blank" class="btn btn-primary agendar-btn">Agendar Ahora</a>
+    </div>
+
+    <!-- Servicio 3 -->
+    <div class="servicio" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-center mb-4">visos</h3>
+      <div class="row g-3">
+        <div class="col-md-4"><img src="imagenes/eduardo/visos-dorados.webp" class="img-fluid" alt="Cejas 1"></div>
+        <div class="col-md-4"><img src="imagenes/eduardo/visos-platinados.jpg" class="img-fluid" alt="Cejas 2"></div>
+        <div class="col-md-4"><img src="imagenes/eduardo/visos-dorados.png" class="img-fluid" alt="Cejas 3"></div>
+      </div>
+      <a href="https://wa.me/1234567890" target="_blank" class="btn btn-primary agendar-btn">Agendar Ahora</a>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    fetch('navbar/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        navLinks.forEach(link => {
+          const hrefPage = link.getAttribute('href')?.split('/').pop();
+          if (hrefPage === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+    fetch('footer/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+</body>
+
+</html>
