@@ -54,21 +54,57 @@ document.getElementById('fecha').addEventListener('change', function () {
   });
 });
 
+// document.getElementById('form-agenda').addEventListener('submit', function (e) {
+//   e.preventDefault();
+
+//   const nombre = document.getElementById('nombre').value.trim();
+//   const correo = document.getElementById('correo').value.trim();
+//   const telefono = document.getElementById('telefono').value.trim();
+//   const fecha = document.getElementById('fecha').value;
+//   const hora = document.getElementById('hora').value;
+
+//   if (!nombre || !correo || !telefono || !fecha || !hora || !barberoSeleccionado) {
+//     alert('Por favor completa todos los campos.');
+//     return;
+//   }
+
+//   const nuevaReserva = {
+//     nombre,
+//     correo,
+//     telefono,
+//     fecha,
+//     hora
+//   };
+
+//   let reservas = JSON.parse(localStorage.getItem(barberoSeleccionado)) || [];
+
+//   const yaReservado = reservas.some(r => r.fecha === fecha && r.hora === hora);
+//   if (yaReservado) {
+//     alert(`La hora ${hora} ya está reservada para el ${fecha} con ${barberoSeleccionado}. Elige otra.`);
+//     return;
+//   }
+
+//   reservas.push(nuevaReserva);
+//   localStorage.setItem(barberoSeleccionado, JSON.stringify(reservas));
+
+//   alert(`Reserva confirmada con ${barberoSeleccionado} el ${fecha} a las ${hora}.`);
+//   document.getElementById('form-agenda').reset();
+//   document.getElementById('formulario').classList.add('oculto');
+//   document.getElementById('formulario').classList.remove('visible');
+// });
+
+
 document.getElementById('form-agenda').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const nombre = document.getElementById('nombre').value.trim();
-  const correo = document.getElementById('correo').value.trim();
-  const telefono = document.getElementById('telefono').value.trim();
+  const nombre = document.getElementById('nombre').value;
+  const correo = document.getElementById('correo').value;
+  const telefono = document.getElementById('telefono').value;
   const fecha = document.getElementById('fecha').value;
   const hora = document.getElementById('hora').value;
 
-  if (!nombre || !correo || !telefono || !fecha || !hora || !barberoSeleccionado) {
-    alert('Por favor completa todos los campos.');
-    return;
-  }
-
   const nuevaReserva = {
+    barbero: barberoSeleccionado,
     nombre,
     correo,
     telefono,
@@ -76,19 +112,14 @@ document.getElementById('form-agenda').addEventListener('submit', function (e) {
     hora
   };
 
-  let reservas = JSON.parse(localStorage.getItem(barberoSeleccionado)) || [];
-
-  const yaReservado = reservas.some(r => r.fecha === fecha && r.hora === hora);
-  if (yaReservado) {
-    alert(`La hora ${hora} ya está reservada para el ${fecha} con ${barberoSeleccionado}. Elige otra.`);
-    return;
-  }
-
+  // Guardar por barbero en localStorage
+  const reservas = JSON.parse(localStorage.getItem(barberoSeleccionado)) || [];
   reservas.push(nuevaReserva);
   localStorage.setItem(barberoSeleccionado, JSON.stringify(reservas));
 
-  alert(`Reserva confirmada con ${barberoSeleccionado} el ${fecha} a las ${hora}.`);
+  alert('Reserva confirmada para ' + barberoSeleccionado + ' el ' + fecha + ' a las ' + hora);
+
+  // Resetear formulario y ocultarlo si deseas
   document.getElementById('form-agenda').reset();
   document.getElementById('formulario').classList.add('oculto');
-  document.getElementById('formulario').classList.remove('visible');
 });

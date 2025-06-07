@@ -1,13 +1,14 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background: #f5f5f5;
+    background-color: black;
     color: #333;
     text-align: center;
 }
 
 .barberos {
     padding-top: 100px; /* ← Evita que el navbar tape el contenido */
+    z-index: 3;
 }
 
 .barberos h1 {
@@ -29,6 +30,7 @@ body {
     border-radius: 1em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    z-index: 3;
 }
 
 .barbero:hover {
@@ -148,3 +150,31 @@ body {
 .visible {
     display: block;
 }
+
+
+.imagen_fondo{
+    background-image: url(../imagenes/lucas/foto_logo.jpg)
+    /* background-color: #333; */
+
+    
+}
+
+  .imagen_fondo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    /* Aquí defines el color y la opacidad */
+    z-index: 1;
+    /* Asegura que la capa esté encima de la imagen */
+  }
+
+
+.letra_blanca{
+    color: white;
+    z-index: 2;
+}
+
