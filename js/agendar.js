@@ -94,6 +94,12 @@ document.getElementById('fecha').addEventListener('change', function () {
 // });
 
 
+// Establecer la fecha mínima en el campo fecha al cargar la página
+window.addEventListener('DOMContentLoaded', () => {
+  const hoy = new Date().toISOString().split('T')[0];
+  document.getElementById('fecha').setAttribute('min', hoy);
+});
+
 document.getElementById('form-agenda').addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -102,6 +108,31 @@ document.getElementById('form-agenda').addEventListener('submit', function (e) {
   const telefono = document.getElementById('telefono').value;
   const fecha = document.getElementById('fecha').value;
   const hora = document.getElementById('hora').value;
+
+  const hoy = new Date();
+  const fechaSeleccionada = new Date(`${fecha}T${hora}`);
+
+  // Validar que la fecha no sea anterior a hoy (ignorar horas)
+  const fechaHoy = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+  const fechaElegida = new Date(fechaSeleccionada.getFullYear(), fechaSeleccionada.getMonth(), fechaSeleccionada.getDate());
+
+  if (fechaElegida < fechaHoy) {
+    alert('No puedes seleccionar una fecha pasada.');
+    return;
+  }
+
+  // Si es hoy, validar que la hora no sea anterior a la hora actual
+  if (fechaElegida.getTime() === fechaHoy.getTime()) {
+    const horaActual = hoy.getHours();
+    const minutoActual = hoy.getMinutes();
+    const horaSeleccionada = fechaSeleccionada.getHours();
+    const minutoSeleccionado = fechaSeleccionada.getMinutes();
+
+    if (horaSeleccionada < horaActual || (horaSeleccionada === horaActual && minutoSeleccionado <= minutoActual)) {
+      alert('No puedes seleccionar una hora pasada.');
+      return;
+    }
+  }
 
   const nuevaReserva = {
     barbero: barberoSeleccionado,
