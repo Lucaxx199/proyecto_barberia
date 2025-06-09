@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Barberos</title>
+  <link rel="stylesheet" href="/css/panel-barberos.css" />
+</head>
+<body>
+
+<header>
+  <h1>Panel Barberos</h1>
+</header>
+
+<main>
+
+  <!-- Selección de barbero -->
+  <section id="seleccion-barberos">
+    <h2>Seleccione su perfil</h2>
+    <div class="contenedor-barberos">
+      <div class="barbero" data-id="1" data-nombre="Juan Pérez">
+        <img src="/imagenes/eduardo/barbero 1.jpg" alt="Juan Pérez" />
+        <h3>Juan Pérez</h3>
+        <button class="btn-ver-citas">Ver citas</button>
+      </div>
+      <div class="barbero" data-id="2" data-nombre="Carlos Gómez">
+        <img src="/imagenes/eduardo/barbero 2.avif" alt="Carlos Gómez" />
+        <h3>Carlos Gómez</h3>
+        <button class="btn-ver-citas">Ver citas</button>
+      </div>
+      <div class="barbero" data-id="3" data-nombre="Luis Rodríguez">
+        <img src="/imagenes/eduardo/barbero 3.jpg" alt="Luis Rodríguez" />
+        <h3>Luis Rodríguez</h3>
+        <button class="btn-ver-citas">Ver citas</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista de citas del barbero -->
+  <section id="panel-citas" class="oculto">
+    <h2>Citas de <span id="nombre-barbero"></span></h2>
+    <ul id="lista-citas"></ul>
+    <div id="info-cita"></div>
+    <button id="btn-volver">Volver</button>
+  </section>
+
+</main>
+
+<script src="/js/panel-barberos.js"></script>
+
+</body>
+</html>
