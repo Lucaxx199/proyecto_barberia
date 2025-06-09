@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Barberia - Inicio</title>
+    <title>Barberos Barberia - Inicio</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -57,10 +57,9 @@
         </div>
         <!-- Botones -->
         <div class="color_boton_agendar">
-            <button class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#modalModificarHoras">Ver
+            <button class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#modalModificarHoras">Modificar
                 horas</button>
         </div>
-        <br>
 
         <!-- Modal: Modificar Horas -->
         <div class="modal fade" id="modalModificarHoras" tabindex="-1" aria-labelledby="modalModificarHorasLabel"
@@ -78,9 +77,6 @@
             </div>
         </div>
 
-       
-
-        
 
         <!-- Modal que muestra la info de la reserva al hacer click -->
         <div class="modal fade" id="detalleModal" tabindex="-1" aria-hidden="true">
@@ -106,7 +102,38 @@
         </div>
 
 
-        
+        <!-- Modal para editar -->
+        <div class="modal fade" id="editarModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Reserva</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formEditar">
+                            <div class="mb-3">
+                                <label for="editarNombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="editarNombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editarBarbero" class="form-label">Barbero</label>
+                                <select class="form-select" id="editarBarbero" required>
+                                    <option value="Juan Perez">Juan Perez</option>
+                                    <option value="Miguel Bustos">Miguel Bustos</option>
+                                    <option value="Francisco Moya">Francisco Moya</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editarHora" class="form-label">Hora</label>
+                                <input type="time" class="form-control" id="editarHora" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -402,6 +429,41 @@
 
 
 
+    </script>
+
+
+    <script>
+        document.getElementById('formCrearUsuario').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const especialidad = document.getElementById('especialidad').value;
+            const celular = document.getElementById('celular').value.trim();
+
+            if (!nombre || !email || !especialidad || !celular) {
+                alert("Por favor completa todos los campos.");
+                return;
+            }
+
+            const nuevoUsuario = {
+                nombre,
+                email,
+                especialidad,
+                celular
+            };
+
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            alert("Usuario guardado correctamente.");
+            this.reset();
+
+            // Cerrar modal (usando Bootstrap)
+            const modal = bootstrap.Modal.getInstance(document.getElementById('modalCrearUsuario'));
+            modal.hide();
+        });
     </script>
 
 
