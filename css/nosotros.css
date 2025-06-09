@@ -1,0 +1,184 @@
+/* Asegura que el layout ocupe toda la altura */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Permite que el footer se pegue abajo si el contenido es corto */
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  overflow-x: hidden;
+}
+
+.fondo-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-image: url(../imagenes/anais/fondo-portada.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
+
+main {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Logo alineado a la izquierda */
+.logo img {
+  height: 70px;
+  width: auto;
+  border-radius: 50%;
+}
+
+/* Menú alineado a la derecha */
+/* .menu {
+  display: flex;
+  gap: 60px;
+  Espacio entre enlaces
+  margin-right: auto;
+  margin-left: 25px;
+} */
+
+/* .menu a.active {
+  color: rgb(242, 214, 6);
+  text-decoration: underline;
+} */
+
+/* Estilos generales para los enlaces */
+/* .menu a {
+  text-decoration: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(219, 211, 211);
+  font-size: 15px;
+} */
+
+
+/* Color al pasar el mouse (azul) */
+/* .menu a:hover {
+  color: #1bb1b6;
+} */
+
+.agendar {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.btn-agendar {
+  background-color: #1b41a3;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-agendar:hover {
+  background-color: #0e9eb8;
+}
+
+main {
+  text-align: center;
+}
+
+.container-principal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: rgba(223, 220, 220, 0.817);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.logo-barber {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 40px;  
+}
+
+.container-quienessomos {
+  max-width: 600px;
+}
+
+.container-quienessomos h1 {
+  padding-top: 20px;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 50px;
+  color: rgb(0, 28, 105);
+}
+
+.container-nosotros {
+  text-align: center;
+  background-color: #1e1d1d;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'oswald', sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+  padding-top: 40px;
+  margin-bottom: 40px;
+}
+
+.container-equipo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.equipo {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #e1d9d9;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.equipo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f4ecec;
+  margin-bottom: 10px;
+}
+
+.equipo h3 {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #514c4c;
+}
+
+.equipo p {
+  font-size: 14px;
+  color: #363333;
+}

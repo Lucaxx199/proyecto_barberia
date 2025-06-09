@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Barberia - Inicio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- full calendar -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales/es.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+
+<body class="color_fondo">
+    <header>
+
+        <!-- Menú header, se llama desde el script del final -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark nav_color">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">BarberShop</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../admin.html">Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="login.html" class="btn btn-lg login_color" tabindex="-1" role="button">Login</a>
+
+            </div>
+
+    </header>
+
+
+    <div class="imagen_fondo">
+        <!-- <div class="fas fa-arrow-down flecha"></div> -->
+        <div class="bienvenido">
+            <h1>Bienvenido Administrador</h1>
+        </div>
+        <!-- Botones -->
+        <div class="color_boton_agendar">
+            <button class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#modalModificarHoras">Modificar
+                horas</button>
+        </div>
+        <br>
+        <div class="color_boton_agendar">
+            <button class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#modalModificarUsuarios">Modificar
+                usuarios</button>
+        </div>
+
+        <!-- Modal: Modificar Horas -->
+        <div class="modal fade" id="modalModificarHoras" tabindex="-1" aria-labelledby="modalModificarHorasLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalModificarHorasLabel">Modificar Horas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="calendario"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Modificar Usuarios -->
+        <div class="modal fade" id="modalModificarUsuarios" tabindex="-1" aria-labelledby="modalModificarUsuariosLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalModificarUsuariosLabel">Modificar Usuario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="barberoNombre" class="form-label">Nombre del Barbero</label>
+                                <select class="form-select" id="barberoNombre">
+                                    <option selected disabled>Seleccionar...</option>
+                                    <option value="juan">Juan Perez</option>
+                                    <option value="pedro">Miguel Bustos</option>
+                                    <option value="luis">Francisco Moya</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="barberoEspecialidad" class="form-label">Especialidad barbero</label>
+                                <select class="form-select" id="barberoEspecialidad">
+                                    <option selected disabled>Seleccionar...</option>
+                                    <option value="corte_clasico">Corte clasico y para niños</option>
+                                    <option value="coloracion">Coloración</option>
+                                    <option value="cejas_y_barba">Cejas y barba</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" id="telefono" placeholder="Ej: +56912345678">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal que muestra la info de la reserva al hacer click -->
+        <div class="modal fade" id="detalleModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detalles de la Reserva</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body letra_modal_negro">
+                        <p><strong>Nombre cliente:</strong> <span id="detalleNombre"></span></p>
+                        <p><strong>Barbero:</strong> <span id="detalleBarbero"></span></p>
+                        <p><strong>Hora:</strong> <span id="detalleHora"></span></p>
+                        <p><strong>Fecha:</strong> <span id="detalleFecha"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnEditar" class="btn btn-primary">Editar</button>
+                        <button id="btnEliminar" class="btn btn-danger">Eliminar</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal para editar -->
+        <div class="modal fade" id="editarModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Reserva</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formEditar">
+                            <div class="mb-3">
+                                <label for="editarNombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="editarNombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editarBarbero" class="form-label">Barbero</label>
+                                <select class="form-select" id="editarBarbero" required>
+                                    <option value="Juan Perez">Juan Perez</option>
+                                    <option value="Miguel Bustos">Miguel Bustos</option>
+                                    <option value="Francisco Moya">Francisco Moya</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editarHora" class="form-label">Hora</label>
+                                <input type="time" class="form-control" id="editarHora" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+    <div id="footer-pie"></div>
+
+
+
+
+    <script>
+        let calendar;
+
+
+        function inicializarCalendario() {
+            const calendarEl = document.getElementById('calendario');
+            const eventos = [];
+
+            const barberoColor = {
+                'Juan Perez': '#007bff',
+                'Miguel Bustos': '#28a745',
+                'Francisco Moya': '#ffc107'
+            };
+
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                try {
+                    const reservas = JSON.parse(localStorage.getItem(key));
+                    if (Array.isArray(reservas)) {
+                        reservas.forEach(r => {
+                            eventos.push({
+                                title: `${r.barbero} - ${r.nombre} (${r.hora})`,
+                                start: `${r.fecha}T${r.hora}`,
+                                color: barberoColor[r.barbero] || '#000000',
+                                allDay: false
+                            });
+                        });
+                    }
+                } catch (e) {
+                    // Ignorar entradas inválidas
+                }
+            }
+
+            calendar = new FullCalendar.Calendar(calendarEl, {
+                eventClick: function (info) {
+                    const evento = info.event;
+
+                    const [barbero, resto] = evento.title.split(" - ");
+                    const nombre = resto.split(" (")[0];
+                    const hora = evento.start.toTimeString().slice(0, 5);
+                    const fecha = evento.start.toISOString().split("T")[0];
+
+                    document.getElementById("detalleNombre").textContent = nombre;
+                    document.getElementById("detalleBarbero").textContent = barbero;
+                    document.getElementById("detalleHora").textContent = hora;
+                    document.getElementById("detalleFecha").textContent = fecha;
+
+                    const modalElement = document.getElementById("detalleModal");
+                    modalElement.dataset.nombre = nombre;
+                    modalElement.dataset.barbero = barbero;
+                    modalElement.dataset.hora = hora;
+                    modalElement.dataset.fecha = fecha;
+
+                    const detalleModal = new bootstrap.Modal(modalElement);
+                    detalleModal.show();
+                },
+                locale: 'es',
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                height: 600,
+                events: eventos
+            });
+
+            calendar.render();
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modalModificarHoras');
+
+            modal.addEventListener('shown.bs.modal', function () {
+                const calendarEl = document.getElementById('calendario');
+
+                if (!calendar) {
+                    const eventos = [];
+
+                    const barberoColor = {
+                        'Juan Perez': '#007bff',
+                        'Miguel Bustos': '#28a745',
+                        'Francisco Moya': '#ffc107'
+                    };
+
+                    for (let i = 0; i < localStorage.length; i++) {
+                        const key = localStorage.key(i);
+                        try {
+                            const reservas = JSON.parse(localStorage.getItem(key));
+                            if (Array.isArray(reservas)) {
+                                reservas.forEach(r => {
+                                    eventos.push({
+                                        title: `${r.barbero} - ${r.nombre} (${r.hora})`,
+                                        start: `${r.fecha}T${r.hora}`,
+                                        color: barberoColor[r.barbero] || '#000000',
+                                        allDay: false
+                                    });
+                                });
+                            }
+                        } catch (e) {
+                            // Ignorar entradas inválidas
+                        }
+                    }
+
+                    calendar = new FullCalendar.Calendar(calendarEl, {
+                        eventClick: function (info) {
+                            const evento = info.event;
+
+                            // Extraer datos desde el título
+                            const [barbero, resto] = evento.title.split(" - ");
+                            const nombre = resto.split(" (")[0];
+                            const hora = evento.start.toTimeString().slice(0, 5);
+                            const fecha = evento.start.toISOString().split("T")[0];
+
+                            // Asegúrate de que los elementos existen
+                            document.getElementById("detalleNombre").textContent = nombre;
+                            document.getElementById("detalleBarbero").textContent = barbero;
+                            document.getElementById("detalleHora").textContent = hora;
+                            document.getElementById("detalleFecha").textContent = fecha;
+
+                            const modalElement = document.getElementById("detalleModal");
+
+                            // Guarda datos para uso posterior (editar/eliminar)
+                            modalElement.dataset.key = evento._def.publicId || "";
+                            modalElement.dataset.nombre = nombre;
+                            modalElement.dataset.barbero = barbero;
+                            modalElement.dataset.hora = hora;
+                            modalElement.dataset.fecha = fecha;
+
+                            const detalleModal = new bootstrap.Modal(modalElement);
+                            detalleModal.show();
+                        }
+                        ,
+                        locale: 'es',
+                        initialView: 'dayGridMonth',
+                        headerToolbar: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        },
+                        height: 600,
+                        events: eventos,
+
+                    });
+
+                    calendar.render();
+                } else {
+                    calendar.render();
+                }
+            });
+
+
+        });
+
+        document.getElementById("btnEliminar").addEventListener("click", function () {
+            const modal = document.getElementById("detalleModal");
+            const nombre = modal.dataset.nombre;
+            const barbero = modal.dataset.barbero;
+            const hora = modal.dataset.hora;
+            const fecha = modal.dataset.fecha;
+
+            const reservas = JSON.parse(localStorage.getItem(fecha)) || [];
+
+            const nuevasReservas = reservas.filter(r => !(r.nombre === nombre && r.barbero === barbero && r.hora === hora));
+
+            localStorage.setItem(fecha, JSON.stringify(nuevasReservas));
+
+            // Cierra el modal y refresca el calendario
+            bootstrap.Modal.getInstance(modal).hide();
+            calendar.destroy();
+            calendar = null;
+            inicializarCalendario();
+
+        });
+
+        document.getElementById("btnEditar").addEventListener("click", function () {
+            const modal = document.getElementById("detalleModal");
+
+            document.getElementById("editarNombre").value = modal.dataset.nombre;
+            document.getElementById("editarBarbero").value = modal.dataset.barbero;
+            document.getElementById("editarHora").value = modal.dataset.hora;
+
+            const editarModal = new bootstrap.Modal(document.getElementById("editarModal"));
+            editarModal.show();
+        });
+
+
+
+        // FUNCION EDITAR
+
+        document.getElementById("formEditar").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const modal = document.getElementById("detalleModal");
+            const nombreAntiguo = modal.dataset.nombre;
+            const barberoAntiguo = modal.dataset.barbero;
+            const horaAntigua = modal.dataset.hora;
+            const fechaAntigua = modal.dataset.fecha;
+
+            const nuevoNombre = document.getElementById("editarNombre").value;
+            const nuevoBarbero = document.getElementById("editarBarbero").value;
+            const nuevaHora = document.getElementById("editarHora").value;
+            const nuevaFecha = fechaAntigua; // si no se permite editar fecha, esto puede quedar fijo
+
+            // Elimina reserva antigua del localStorage[barbero]
+            let reservasBarbero = JSON.parse(localStorage.getItem(barberoAntiguo)) || [];
+            reservasBarbero = reservasBarbero.filter(r => {
+                return !(
+                    r.nombre.trim() === nombreAntiguo.trim() &&
+                    r.hora === horaAntigua &&
+                    r.fecha === fechaAntigua
+                );
+            });
+            localStorage.setItem(barberoAntiguo, JSON.stringify(reservasBarbero));
+
+            // Elimina reserva antigua del localStorage[fecha]
+            let reservasFecha = JSON.parse(localStorage.getItem(fechaAntigua)) || [];
+            reservasFecha = reservasFecha.filter(r => {
+                return !(
+                    r.nombre.trim() === nombreAntiguo.trim() &&
+                    r.barbero === barberoAntiguo &&
+                    r.hora === horaAntigua
+                );
+            });
+            localStorage.setItem(fechaAntigua, JSON.stringify(reservasFecha));
+
+            // Paso 4: Agregar la nueva reserva en localStorage[fecha]
+            let nuevasReservasFecha = JSON.parse(localStorage.getItem(nuevaFecha)) || [];
+            nuevasReservasFecha.push({
+                nombre: nuevoNombre,
+                barbero: nuevoBarbero,
+                fecha: nuevaFecha,
+                hora: nuevaHora
+            });
+            localStorage.setItem(nuevaFecha, JSON.stringify(nuevasReservasFecha));
+
+            // Cerrar modales y refrescar calendario
+            bootstrap.Modal.getInstance(document.getElementById("editarModal")).hide();
+            bootstrap.Modal.getInstance(modal).hide();
+            calendar.destroy();
+            calendar = null;
+            inicializarCalendario();
+        });
+
+
+
+        // FUNCION ELIMINAR
+        document.getElementById("btnEliminar").addEventListener("click", function () {
+            const modal = document.getElementById("detalleModal");
+            const nombre = modal.dataset.nombre;
+            const barbero = modal.dataset.barbero;
+            const hora = modal.dataset.hora;
+            const fecha = modal.dataset.fecha;
+
+            const reservas = JSON.parse(localStorage.getItem(barbero)) || [];
+
+            const nuevasReservas = reservas.filter(r => !(r.nombre === nombre && r.barbero === barbero && r.hora === hora));
+
+            localStorage.setItem(barbero, JSON.stringify(nuevasReservas));
+
+            // Cierra el modal
+            bootstrap.Modal.getInstance(modal).hide();
+
+            // Espera a que el modal se cierre antes de recargar el calendario
+            setTimeout(() => {
+                calendar.destroy();
+                calendar = null;
+                inicializarCalendario();
+
+                // Reabrimos el modal de horas para forzar el redibujo
+                const modalHoras = new bootstrap.Modal(document.getElementById("modalModificarHoras"));
+                modalHoras.show();
+            }, 300); // Esperamos 300ms a que se cierre el modal
+            console.log("Antes:", reservas);
+            console.log("Después:", nuevasReservas);
+        });
+
+
+
+
+    </script>
+
+
+
+
+
+    <!-- Para cargar footer -->
+    <script>
+        fetch('footer/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-pie').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>

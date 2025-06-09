@@ -6,16 +6,6 @@
   .texto_blanco {
     color: white;
   }
-/* 
-  footer {
-    position: fixed;
-    background-color: #F0381F;
-    bottom: 0;
-    width: 100%;
-    text-align: start;
-    color: white;
-    padding: 10px;
-  } */
 
   .centrar {
     text-align: center;
@@ -69,26 +59,6 @@
     z-index: 1;
   }
 
-  /* .nav_color {
-    background-color: #2A3233;
-  }
-
-  .login_color {
-    background-color: #3B565C;
-    color: white;
-  } */
-
-
-  /* .flecha {
-    position: absolute;
-    text-align: center;
-    bottom: 30px;
-    font-size: 50px;
-    color: #1FBCDB;
-    animation: moverFlecha 1s infinite alternate;
-    z-index: 3;
-  } */
-
   /* Animación de la flecha hacia abajo */
   @keyframes moverFlecha {
     0% {
@@ -133,6 +103,7 @@
 
   body {
     padding-bottom: 2vh;
+    z-index: 3;
   }
 
 
