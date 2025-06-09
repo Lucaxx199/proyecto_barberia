@@ -1,3 +1,12 @@
+:root {
+    --morado-claro: #673ab7;
+    --morado-oscuro: #512da8;
+    --morado-gradiente-inicio: #6a1b9a;
+    --morado-gradiente-fin: #8e24aa;
+    --morado-gradiente-hover-inicio: #7b34b7;
+    --morado-gradiente-hover-fin: #9c4ede;
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -22,6 +31,14 @@ body {
     gap: 2em;
     flex-wrap: wrap;
     margin: 2em;
+}
+
+/* Media query para móviles: layout en columna y centrado */
+@media (max-width: 600px) {
+    .contenedor-barberos {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .barbero {
@@ -51,7 +68,7 @@ body {
 
 .barbero button {
     margin-top: 1em;
-    background: #673ab7;
+    background: var(--morado-claro);
     color: white;
     border: none;
     padding: 0.5em 1em;
@@ -61,7 +78,7 @@ body {
 }
 
 .barbero button:hover {
-    background: #512da8;
+    background: var(--morado-oscuro);
 }
 
 .formulario-agenda {
@@ -71,7 +88,19 @@ body {
     padding: 2em;
     border-radius: 1em;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    /* Centrado vertical y horizontal en pantalla completa */
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+/* Labels para accesibilidad (puedes agregar en HTML) */
+/* Ejemplo:
+<label for="nombre">Nombre</label>
+<input id="nombre" ... >
+*/
 
 .formulario-agenda h2 {
     margin-bottom: 1em;
@@ -87,12 +116,19 @@ body {
     border: 1px solid #ccc;
     font-size: 1em;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo para inputs con error de validación */
+.formulario-agenda input.error,
+.formulario-agenda select.error {
+    border-color: #e53935; /* rojo */
+    box-shadow: 0 0 8px rgba(229, 57, 53, 0.5);
 }
 
 /* Mejoras para el select "Selecciona una hora" */
 #hora {
-    border: 2px solid #673ab7;
+    border: 2px solid var(--morado-claro);
     background: white url('data:image/svg+xml;utf8,<svg fill="%23673ab7" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 1em center;
     background-size: 1em;
     cursor: pointer;
@@ -103,7 +139,7 @@ body {
 
 #hora:focus {
     outline: none;
-    border-color: #512da8;
+    border-color: var(--morado-oscuro);
     box-shadow: 0 0 8px rgba(81, 45, 168, 0.5);
 }
 
@@ -117,7 +153,7 @@ body {
 
 /* Botón "Confirmar Hora" */
 .formulario-agenda button[type="submit"] {
-    background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+    background: linear-gradient(135deg, var(--morado-gradiente-inicio), var(--morado-gradiente-fin));
     color: white;
     border: none;
     padding: 1em 1.5em;
@@ -133,7 +169,7 @@ body {
 }
 
 .formulario-agenda button[type="submit"]:hover {
-    background: linear-gradient(135deg, #7b34b7, #9c4ede);
+    background: linear-gradient(135deg, var(--morado-gradiente-hover-inicio), var(--morado-gradiente-hover-fin));
     box-shadow: 0 6px 20px rgba(138, 43, 226, 0.7);
     transform: translateY(-3px);
 }
@@ -161,7 +197,6 @@ body {
 
   .imagen_fondo::before {
     content: "";
-    position: absolute;
     top: 0;
     left: 0;
     right: 0;
