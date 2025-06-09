@@ -65,6 +65,11 @@
             <button class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#modalModificarUsuarios">Modificar
                 usuarios</button>
         </div>
+        <br>
+        <div class="color_boton_agendar">
+            <button class="btn btn-lg" data-bs-toggle="modal" data-bs-target="#modalCrearUsuario">Crear
+                usuario</button>
+        </div>
 
         <!-- Modal: Modificar Horas -->
         <div class="modal fade" id="modalModificarHoras" tabindex="-1" aria-labelledby="modalModificarHorasLabel"
@@ -116,6 +121,46 @@
                                 <input type="tel" class="form-control" id="telefono" placeholder="Ej: +56912345678">
                             </div>
                             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de creación de usuario -->
+        <div class="modal fade" id="modalCrearUsuario" tabindex="-1" aria-labelledby="modalCrearUsuarioLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalCrearUsuarioLabel">Crear nuevo usuario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formCrearUsuario">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="especialidad" class="form-label">Especialidad</label>
+                                <select class="form-select" id="especialidad" required>
+                                    <option value="">Seleccione una especialidad</option>
+                                    <option value="Cardiología">Cardiología</option>
+                                    <option value="Pediatría">Pediatría</option>
+                                    <option value="Neurología">Neurología</option>
+                                    <option value="Dermatología">Dermatología</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="celular" class="form-label">Número celular</label>
+                                <input type="tel" class="form-control" id="celular" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">Guardar usuario</button>
                         </form>
                     </div>
                 </div>
@@ -474,6 +519,41 @@
 
 
 
+    </script>
+
+
+    <script>
+        document.getElementById('formCrearUsuario').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const especialidad = document.getElementById('especialidad').value;
+            const celular = document.getElementById('celular').value.trim();
+
+            if (!nombre || !email || !especialidad || !celular) {
+                alert("Por favor completa todos los campos.");
+                return;
+            }
+
+            const nuevoUsuario = {
+                nombre,
+                email,
+                especialidad,
+                celular
+            };
+
+            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+            alert("Usuario guardado correctamente.");
+            this.reset();
+
+            // Cerrar modal (usando Bootstrap)
+            const modal = bootstrap.Modal.getInstance(document.getElementById('modalCrearUsuario'));
+            modal.hide();
+        });
     </script>
 
 
